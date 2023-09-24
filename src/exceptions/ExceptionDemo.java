@@ -23,9 +23,12 @@ public class ExceptionDemo {
         try{
             account.withdraw(1000);
         }
-        catch(CustomInsufficientBalanceException e){
+        catch(AccountException e){
             // e.printStackTrace();
-            System.out.println(e.getMessage());
+            var cause = e.getCause();
+            e.printStackTrace();
+           // System.out.println(e.getMessage());
+            System.out.println(cause.getMessage());
 
         }
     }

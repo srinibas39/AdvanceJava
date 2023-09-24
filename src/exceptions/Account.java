@@ -12,9 +12,17 @@ public class Account {
         }
     }
 
-    public void withdraw(float value) throws CustomInsufficientBalanceException {
+    public void withdraw(float value) throws AccountException {
         if(value>accountBalance){
-            throw new CustomInsufficientBalanceException();
+            //throw new CustomInsufficientBalanceException();
+//            var customInsufficientBalanceException = new CustomInsufficientBalanceException();
+//            var accountException = new AccountException();
+//
+//            accountException.initCause(customInsufficientBalanceException);
+//
+//            throw new AccountException();
+
+            throw new AccountException(new CustomInsufficientBalanceException());
         }
     }
 }
