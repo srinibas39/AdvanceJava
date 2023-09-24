@@ -34,7 +34,9 @@ public class Main {
 //        }
         finally {
             try{
-                reader.close();
+                if(reader!=null){
+                    reader.close();
+                }
             }
             catch (IOException e){
                 e.printStackTrace();
