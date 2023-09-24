@@ -11,10 +11,13 @@ public class Main {
 
        //  ExceptionDemo.show("hello");
 
+        FileReader reader= null;
+
         //catching exception
 
+
         try{
-           var reader = new FileReader("file.txt");
+            reader = new FileReader("file.txt");
            reader.read();
            var data = new SimpleDateFormat().parse("");
 
@@ -29,6 +32,14 @@ public class Main {
 //        catch(ParseException e){
 //            System.out.println(e.getMessage());
 //        }
+        finally {
+            try{
+                reader.close();
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+        }
 
 
     }
