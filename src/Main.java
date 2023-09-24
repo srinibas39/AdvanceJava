@@ -1,3 +1,4 @@
+import exceptions.CustomInsufficientBalanceException;
 import exceptions.ExceptionDemo;
 
 import java.io.FileNotFoundException;
@@ -10,7 +11,16 @@ import java.text.SimpleDateFormat;
 public class Main {
     public static void main(String[] args) {
 
-        ExceptionDemo.show();
+        try {
+            ExceptionDemo.show();
+            ExceptionDemo.showWithdraw();
+        }
+        catch (Throwable e ){
+            System.out.println("Unexpected error occured");
+        }
+
+
+
 
        //  ExceptionDemo.show("hello");
 
