@@ -1,15 +1,15 @@
 package generics;
 
 public class List {
-     private int list[] = new int[10];
+     private Object list[] = new Object[10];
      private int count;
 
 
-     public void add(int element){
+     public void add(Object element){
          this.list[this.count++]=element;
      }
 
-     public  int get(int idx){
+     public  Object get(int idx){
          return this.list[idx];
      }
 

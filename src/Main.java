@@ -1,5 +1,8 @@
 import exceptions.CustomInsufficientBalanceException;
 import exceptions.ExceptionDemo;
+import generics.GenericList;
+import generics.List;
+import generics.User;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -11,13 +14,15 @@ import java.text.SimpleDateFormat;
 public class Main {
     public static void main(String[] args) {
 
-        try {
-            //ExceptionDemo.show();
-            ExceptionDemo.showWithdraw();
-        }
-        catch (Throwable e ){
-            System.out.println("Unexpected error occured");
-        }
+
+//        Excptions
+//        try {
+//            //ExceptionDemo.show();
+//            ExceptionDemo.showWithdraw();
+//        }
+//        catch (Throwable e ){
+//            System.out.println("Unexpected error occured");
+//        }
 
 
 
@@ -59,6 +64,30 @@ public class Main {
 ////                e.printStackTrace();
 ////            }
 ////        }
+
+
+// Generics
+
+//        var list = new List();
+//        list.add(10);
+//        list.add("");
+//        list.add(new User());
+//
+//       ;
+//        ;
+//
+//        System.out.println(list.get(0));
+//        //here list.get(10)--> primitive type ==> list.get(Integer.valurOf(10))
+//        //converting yo primitive   to reference types
+//        System.out.println(list.get(1));
+//        System.out.println(list.get(2));
+
+        //genric list
+        var genericList = new GenericList<Integer>();
+        genericList.add(10);
+        var genericListUser = new GenericList<User>();
+        genericListUser.add(new User());
+
 
 
     }
