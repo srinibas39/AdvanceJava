@@ -88,6 +88,17 @@ public class Main {
         var genericListUser = new GenericList<User>();
         genericListUser.add(new User());
 
+        //Boxing and UnBoxing
+
+        GenericList<Double> listD = new GenericList<Double>();
+
+        //boxing --> java converts primimtie type to its wrapper instance
+        listD.add(1.1);
+        //unboxing --. java converts its wrapper instance to its specific primitiv type
+        listD.get(0);
+
+
+
 
 
     }
