@@ -120,13 +120,16 @@ public class Main {
 
 //        int gm = GenericMethods.max(10,20);
 //        System.out.println(gm);
-        var user1 = new User(10);
-        var user2 = new User(20);
+//        var user1 = new User(10);
+//        var user2 = new User(20);
+//
+//        var res=GenericMethods.max(user1, user2);
+//        System.out.println(res);
 
-        var res=GenericMethods.max(user1, user2);
-        System.out.println(res);
+//      multiple type parameters
 
-
+        GenericMethods.print(1,10);
+        GenericMethods.print("mango",10);
 
     }
 }

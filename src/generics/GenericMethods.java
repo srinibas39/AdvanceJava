@@ -5,4 +5,10 @@ public class GenericMethods {
        //return (first > second) ? first : second;
         return (first.compareTo(second) > 0) ? first : second;
     }
+
+
+    //multiple value parameter
+    public static <K,V> void print(K key , V value){
+        System.out.println(key + "="+ value);
+    }
 }
