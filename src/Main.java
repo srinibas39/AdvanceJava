@@ -83,21 +83,37 @@ public class Main {
 //        System.out.println(list.get(2));
 
         //generic list
-        var genericList = new GenericList<Integer>();
-        genericList.add(10);
-        var genericListUser = new GenericList<User>();
-        genericListUser.add(new User());
+//        var genericList = new GenericList<Integer>();
+//        genericList.add(10);
+//        var genericListUser = new GenericList<User>();
+//        genericListUser.add(new User());
+//
+//        //Boxing and UnBoxing
+//
+//        GenericList<Double> listD = new GenericList<Double>();
+//
+//        //boxing --> java converts primimtie type to its wrapper instance
+//        listD.add(1.1);
+//        //unboxing --. java converts its wrapper instance to its specific primitiv type
+//        listD.get(0);
 
-        //Boxing and UnBoxing
 
-        GenericList<Double> listD = new GenericList<Double>();
+// comparable
 
-        //boxing --> java converts primimtie type to its wrapper instance
-        listD.add(1.1);
-        //unboxing --. java converts its wrapper instance to its specific primitiv type
-        listD.get(0);
+        var user1 = new User(10);
+        var user2 = new User(20);
 
+        int result = user1.compareTo(user2);
 
+        if(result < 0){
+            System.out.println("user1 < user2");
+        }
+        else if(result > 0){
+            System.out.println("user1 > user2 ");
+        }
+        else{
+            System.out.println("user1 is equal to user2");
+        }
 
 
 
