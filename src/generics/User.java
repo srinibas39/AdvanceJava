@@ -12,4 +12,10 @@ public class User  implements  Comparable<User>{
     public int compareTo(User o) {
        return this.points - o.points;
     }
+
+
+    @Override
+    public String toString() {
+        return this.points+"";
+    }
 }

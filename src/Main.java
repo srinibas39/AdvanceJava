@@ -1,6 +1,7 @@
 import exceptions.CustomInsufficientBalanceException;
 import exceptions.ExceptionDemo;
 import generics.GenericList;
+import generics.GenericMethods;
 import generics.List;
 import generics.User;
 
@@ -98,22 +99,32 @@ public class Main {
 //        listD.get(0);
 
 
-// comparable
+//// comparable
+//
+//        var user1 = new User(10);
+//        var user2 = new User(20);
+//
+//        int result = user1.compareTo(user2);
+//
+//        if(result < 0){
+//            System.out.println("user1 < user2");
+//        }
+//        else if(result > 0){
+//            System.out.println("user1 > user2 ");
+//        }
+//        else{
+//            System.out.println("user1 is equal to user2");
+//        }
+//
+//        Genric Methods
 
+//        int gm = GenericMethods.max(10,20);
+//        System.out.println(gm);
         var user1 = new User(10);
         var user2 = new User(20);
 
-        int result = user1.compareTo(user2);
-
-        if(result < 0){
-            System.out.println("user1 < user2");
-        }
-        else if(result > 0){
-            System.out.println("user1 > user2 ");
-        }
-        else{
-            System.out.println("user1 is equal to user2");
-        }
+        var res=GenericMethods.max(user1, user2);
+        System.out.println(res);
 
 
 
