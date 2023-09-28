@@ -82,7 +82,7 @@ public class Main {
 //        System.out.println(list.get(1));
 //        System.out.println(list.get(2));
 
-        //genric list
+        //generic list
         var genericList = new GenericList<Integer>();
         genericList.add(10);
         var genericListUser = new GenericList<User>();
