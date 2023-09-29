@@ -141,7 +141,10 @@ public class Main {
         GenericMethods.printUserList(users);
 
         var instructors = new GenericList<Instructor>();
-        GenericMethods.printUserList(instructors);
+       // GenericMethods.printUserList(instructors);
+
+        //It is still correct which is approblem beacuse we want only user class and ite derivative class
+        GenericMethods.printUserList(new GenericList<User>());
 
     }
 }
