@@ -1,9 +1,6 @@
 import exceptions.CustomInsufficientBalanceException;
 import exceptions.ExceptionDemo;
-import generics.GenericList;
-import generics.GenericMethods;
-import generics.List;
-import generics.User;
+import generics.*;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -128,8 +125,23 @@ public class Main {
 
 //      multiple type parameters
 
-        GenericMethods.print(1,10);
-        GenericMethods.print("mango",10);
+//        GenericMethods.print(1,10);
+//        GenericMethods.print("mango",10);
+
+        //Geneic classes and inheritance
+
+        var user = new User(20);
+        GenericMethods.printUser(user);
+
+        var instructor = new Instructor(10);
+        GenericMethods.printUser(instructor);
+
+        //the problem
+        var users = new GenericList<User>();
+        GenericMethods.printUserList(users);
+
+        var instructors = new GenericList<Instructor>();
+        GenericMethods.printUserList(instructors);
 
     }
 }
