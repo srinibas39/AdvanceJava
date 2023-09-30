@@ -130,21 +130,34 @@ public class Main {
 
         //Geneic classes and inheritance
 
-        var user = new User(20);
-        GenericMethods.printUser(user);
+//        var user = new User(20);
+//        GenericMethods.printUser(user);
+//
+//        var instructor = new Instructor(10);
+//        GenericMethods.printUser(instructor);
+//
+//        //the problem
+//        var users = new GenericList<User>();
+//        GenericMethods.printUserList(users);
+//
+//        var instructors = new GenericList<Instructor>();
+//       // GenericMethods.printUserList(instructors);
+//
+//        //It is still correct which is approblem beacuse we want only user class and ite derivative class
+//        GenericMethods.printUserList(new GenericList<User>());
 
-        var instructor = new Instructor(10);
-        GenericMethods.printUser(instructor);
+//        iterable interface
 
-        //the problem
-        var users = new GenericList<User>();
-        GenericMethods.printUserList(users);
+        var items = new GenericList<String>();
 
-        var instructors = new GenericList<Instructor>();
-       // GenericMethods.printUserList(instructors);
+        items.add("abc");
+        items.add("def");
 
-        //It is still correct which is approblem beacuse we want only user class and ite derivative class
-        GenericMethods.printUserList(new GenericList<User>());
+        for(var item : items){
+            System.out.println(item);
+        }
+
+
 
     }
 }
