@@ -1,4 +1,5 @@
 import collections.CollectionDemo;
+import collections.Customer;
 import collections.ListDemo;
 import exceptions.CustomInsufficientBalanceException;
 import exceptions.ExceptionDemo;
@@ -10,6 +11,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -164,7 +168,19 @@ public class Main {
        // CollectionDemo.show();
 
 //        List
-        ListDemo.showList();
+  //      ListDemo.showList();
+
+        //Compareable interface ==> sorting
+
+        List<Customer> customerList = new ArrayList<>();
+
+        customerList.add(new Customer("a"));
+        customerList.add(new Customer("b"));
+        customerList.add(new Customer("c"));
+
+        Collections.sort(customerList);
+        System.out.println(customerList);
+
 
 
 
