@@ -1,3 +1,4 @@
+import collections.CollectionDemo;
 import exceptions.CustomInsufficientBalanceException;
 import exceptions.ExceptionDemo;
 import generics.*;
@@ -148,14 +149,18 @@ public class Main {
 
 //        iterable interface
 
-        var items = new GenericList<String>();
+//        var items = new GenericList<String>();
+//
+//        items.add("abc");
+//        items.add("def");
+//
+//        for(var item : items){
+//            System.out.println(item);
+//        }
 
-        items.add("abc");
-        items.add("def");
+//        collections
 
-        for(var item : items){
-            System.out.println(item);
-        }
+        CollectionDemo.show();
 
 
 
