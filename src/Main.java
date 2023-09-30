@@ -1,5 +1,6 @@
 import collections.CollectionDemo;
 import collections.Customer;
+import collections.EmailComparator;
 import collections.ListDemo;
 import exceptions.CustomInsufficientBalanceException;
 import exceptions.ExceptionDemo;
@@ -174,11 +175,15 @@ public class Main {
 
         List<Customer> customerList = new ArrayList<>();
 
-        customerList.add(new Customer("a"));
-        customerList.add(new Customer("b"));
-        customerList.add(new Customer("c"));
+        customerList.add(new Customer("a","e3"));
+        customerList.add(new Customer("b","e2"));
+        customerList.add(new Customer("c","e1"));
 
-        Collections.sort(customerList);
+//        1st method
+//        Collections.sort(customerList);
+//        System.out.println(customerList);
+//        2nd method
+        Collections.sort(customerList, new EmailComparator());
         System.out.println(customerList);
 
 
