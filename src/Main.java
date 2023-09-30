@@ -1,4 +1,5 @@
 import collections.CollectionDemo;
+import collections.ListDemo;
 import exceptions.CustomInsufficientBalanceException;
 import exceptions.ExceptionDemo;
 import generics.*;
@@ -160,7 +161,10 @@ public class Main {
 
 //        collections
 
-        CollectionDemo.show();
+       // CollectionDemo.show();
+
+//        List
+        ListDemo.showList();
 
 
 
