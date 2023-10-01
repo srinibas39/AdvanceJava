@@ -9,9 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 import java.util.List;
 
 public class Main {
@@ -185,7 +183,10 @@ public class Main {
 //        System.out.println(customerList);
 
 //        Queue Demo
-        QueueDemo.show();
+      //  QueueDemo.show();
+
+//       Set Demo
+        SetDemo.show();
 
 
 
