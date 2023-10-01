@@ -23,15 +23,15 @@ public class SetDemo {
 
         //set operation
         Set<String> set1 = new HashSet<>(Arrays.asList("1","2","3","10"));
-        Set<String> set2 = new HashSet<>(Arrays.asList("4","5","6","2","3"));
+        Set<String> set2 = new HashSet<>(Arrays.asList("4","5","6","2","3","10","11"));
 
 //        //union ==. all the elemnts in set1 and set2
 //        set1.addAll(set2);
 //        System.out.println("union"+set1);
 //
-        //intersection ==. retain all the elements of set 2 and delete remaining elements from set1
-        set1.retainAll(set2);
-        System.out.println("intersection"+set2);
+        //intersection ==. retain all the elements of set 2 and delete all elements from set1
+//        set1.retainAll(set2);
+//        System.out.println("intersection"+set2);
 
         //difference ==> remove the elements of set2 from set 1
 //        set1.removeAll(set2);
