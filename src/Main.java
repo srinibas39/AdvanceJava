@@ -186,7 +186,10 @@ public class Main {
       //  QueueDemo.show();
 
 //       Set Demo
-        SetDemo.show();
+        //SetDemo.show();
+
+        //Map demo
+        MapDemo.show();
 
 
 

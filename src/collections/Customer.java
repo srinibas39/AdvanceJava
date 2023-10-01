@@ -3,16 +3,8 @@ package collections;
 public class Customer implements Comparable<Customer> {
 
     private String name;
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     private String email;
+
 
     public Customer(String name , String email) {
         this.name = name;
@@ -27,5 +19,14 @@ public class Customer implements Comparable<Customer> {
     @Override
     public String toString() {
         return this.name;
+    }
+
+    //getters and setters for email
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
