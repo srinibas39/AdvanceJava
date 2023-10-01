@@ -1,3 +1,4 @@
+import LambdaExpressionAndFunctionalInterfaces.LambdasDemo;
 import collections.*;
 import exceptions.CustomInsufficientBalanceException;
 import exceptions.ExceptionDemo;
@@ -189,7 +190,14 @@ public class Main {
         //SetDemo.show();
 
         //Map demo
-        MapDemo.show();
+//        MapDemo.show();
+
+//        Functional interfaces
+
+        LambdasDemo.show();
+
+
+
 
 
 
