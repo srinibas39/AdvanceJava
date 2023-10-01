@@ -1,7 +1,4 @@
-import collections.CollectionDemo;
-import collections.Customer;
-import collections.EmailComparator;
-import collections.ListDemo;
+import collections.*;
 import exceptions.CustomInsufficientBalanceException;
 import exceptions.ExceptionDemo;
 import generics.*;
@@ -12,6 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -173,18 +171,22 @@ public class Main {
 
         //Compareable interface ==> sorting
 
-        List<Customer> customerList = new ArrayList<>();
-
-        customerList.add(new Customer("a","e3"));
-        customerList.add(new Customer("b","e2"));
-        customerList.add(new Customer("c","e1"));
+//        List<Customer> customerList = new ArrayList<>();
+//
+//        customerList.add(new Customer("a","e3"));
+//        customerList.add(new Customer("b","e2"));
+//        customerList.add(new Customer("c","e1"));
 
 //        1st method
 //        Collections.sort(customerList);
 //        System.out.println(customerList);
 //        2nd method
-        Collections.sort(customerList, new EmailComparator());
-        System.out.println(customerList);
+//        Collections.sort(customerList, new EmailComparator());
+//        System.out.println(customerList);
+
+//        Queue Demo
+        QueueDemo.show();
+
 
 
 
