@@ -21,7 +21,12 @@ public class LambdasDemo {
 //        });
 
 //        more simplification of lambda expression
-        greet(message -> System.out.println("Printed "+message));
+       // greet(message -> System.out.println("Printed "+message));
+
+        // We can also store lambda expression in a variable
+        Printer printer = message -> System.out.println("Printed "+ message);
+
+        System.out.println(printer);
     }
 
 
