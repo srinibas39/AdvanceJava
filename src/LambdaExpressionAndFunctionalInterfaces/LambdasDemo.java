@@ -2,7 +2,12 @@ package LambdaExpressionAndFunctionalInterfaces;
 
 public class LambdasDemo {
 
-    public static  void show(){
+    //we can also have static field in lambda expression
+
+    //Now removing static fields
+    public  String prefix="some prefix ";
+
+    public   void show(){
         //dependecy injection
         //greet(new ConsolePrinter());
 
@@ -24,9 +29,18 @@ public class LambdasDemo {
        // greet(message -> System.out.println("Printed "+message));
 
         // We can also store lambda expression in a variable
-        Printer printer = message -> System.out.println("Printed "+ message);
+//        Printer printer = message -> System.out.println("Printed "+ message);
+//
+//        System.out.println(printer);
 
-        System.out.println(printer);
+
+
+        //we can also have variables in lambda expression
+       // String prefix = "some prefix ";
+
+        greet(message -> System.out.println(prefix + message));
+
+
     }
 
 
