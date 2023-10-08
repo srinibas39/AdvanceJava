@@ -194,10 +194,10 @@ public class Main {
 
 //        Functional interfaces
 
-        //LambdasDemo.show();
+        LambdasDemo.show();
 
-        var demo = new LambdasDemo();
-        demo.show();
+//        var demo = new LambdasDemo();
+//        demo.show();
 
 
 
