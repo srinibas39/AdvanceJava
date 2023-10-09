@@ -2,6 +2,7 @@ package LambdaExpressionAndFunctionalInterfaces;
 
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class LambdasDemo {
@@ -32,14 +33,25 @@ public class LambdasDemo {
 
         //supplier interface
 
-        Supplier<Double> getRandom = ()-> Math.random()+1;
-        // This is called as lazy evaluation.That means instead of function
-        // getting called immediately we can call this function at some later time.
-        var random = getRandom.get();
-        System.out.println(random);
+//        Supplier<Double> getRandom = ()-> Math.random()+1;
+//        // This is called as lazy evaluation.That means instead of function
+//        // getting called immediately we can call this function at some later time.
+//        var random = getRandom.get();
+//        System.out.println(random);
+//
+//        //Supper has own primitve  specialization
+//        // to avoid uneesaary boxing and unboxing.
 
-        //Supper has own primitve  specialization
-        // to avoid uneesaary boxing and unboxing.
+
+        //Functional Interface
+
+        List<String> list = List.of("Mango","Apple","Cherry");
+
+        Function<String,Integer> lengthOfString = item -> item.length();
+
+        list.forEach(item -> System.out.println(lengthOfString.apply(item)));
+
+        //It has three category of primtive types variations.
 
 
 
