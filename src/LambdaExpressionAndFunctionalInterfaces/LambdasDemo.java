@@ -44,7 +44,6 @@ public class LambdasDemo {
 
 
         //Functional Interface
-
         List<String> list = List.of("Mango","Apple","Cherry");
 
         Function<String,Integer> lengthOfString = item -> item.length();
