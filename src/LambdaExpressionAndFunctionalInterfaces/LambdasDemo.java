@@ -44,13 +44,32 @@ public class LambdasDemo {
 
 
         //Functional Interface
-        List<String> list = List.of("Mango","Apple","Cherry");
-
-        Function<String,Integer> lengthOfString = item -> item.length();
-
-        list.forEach(item -> System.out.println(lengthOfString.apply(item)));
+//        List<String> list = List.of("Mango","Apple","Cherry");
+//
+//        Function<String,Integer> lengthOfString = item -> item.length();
+//
+//        list.forEach(item -> System.out.println(lengthOfString.apply(item)));
 
         //It has three category of primtive types variations.
+
+        //compose functions
+        //convert "Key:value" --> {key = value}
+        //so forst we will replace colon  with equals to
+        // then we will dd braces
+
+        Function<String,String> removeColonWithEquals = str ->
+                str.replace(":","=");
+
+        Function<String, String> addBraces = str -> '{' + str + '}';
+
+        var result = removeColonWithEquals.andThen(addBraces).apply("Key:value");
+        System.out.println(result);
+        //we achieve same thing using compose
+
+        var composeResult=addBraces.compose(removeColonWithEquals).apply("Key:value");
+        System.out.println(composeResult);
+
+        //compose does same thing as addThen but in reverse.
 
 
 
