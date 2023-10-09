@@ -2,6 +2,7 @@ package LambdaExpressionAndFunctionalInterfaces;
 
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public class LambdasDemo {
 
@@ -21,12 +22,24 @@ public class LambdasDemo {
 
         //chaning consumers
 
-        List<String> list = List.of("apple", "banana", "cherry");
+//        List<String> list = List.of("apple", "banana", "cherry");
+//
+//        Consumer<String> print = item -> System.out.println(item);
+//        Consumer<String> printUpperCase = item -> System.out.println(item.toUpperCase());
+//
+//        list.forEach(print.andThen(printUpperCase).andThen(print));
 
-        Consumer<String> print = item -> System.out.println(item);
-        Consumer<String> printUpperCase = item -> System.out.println(item.toUpperCase());
 
-        list.forEach(print.andThen(printUpperCase).andThen(print));
+        //supplier interface
+
+        Supplier<Double> getRandom = ()-> Math.random()+1;
+        // This is called as lazy evaluation.That means instead of function
+        // getting called immediately we can call this function at some later time.
+        var random = getRandom.get();
+        System.out.println(random);
+
+        //Supper has own primitve  specialization
+        // to avoid uneesaary boxing and unboxing.
 
 
 
