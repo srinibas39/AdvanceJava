@@ -1,41 +1,24 @@
 package LambdaExpressionAndFunctionalInterfaces;
 
+import java.util.List;
+
 public class LambdasDemo {
 
-    public LambdasDemo(String message) {
-    }
-
-    public  void print(String message){}
-
     public static void show(){
-//       greet(message -> System.out.println(message));
-//
-//        //convert this to method experssion
-//        //Class/Object :: method
-//        greet(System.out :: println);
 
+        //consumer interface
+        List<Integer> list = List.of(1,2,3);
+        //imperative way--> How to do
+        //        for(var item : list){
+        //            System.out.println(item);
+        //        }
 
-        //static cases
-//        greet(message -> print(message));
-//        greet(LambdasDemo :: print);
-
-        //instance case
-//
-//        var demo = new LambdasDemo();
-//        greet(message -> demo.print(message));
-//
-//        greet(demo :: print);
-
-        //for constructor
-        greet(message -> new LambdasDemo(message));
-
-        greet(LambdasDemo:: new);
+        //we can do the same thing using forEach
+        //this forEach expects  a consumer interface , so we can give lambda expression
+        //Declarative way -> what to do
+        list.forEach(item -> System.out.println(item));
 
     }
 
 
-    //Here I need to talk with the interface
-    public static void greet(Printer printer){
-        printer.print("Hello printer");
-    }
 }
