@@ -91,14 +91,25 @@ public class LambdasDemo {
 //        System.out.println(res);
 //        System.out.println(res2);
 
-        //Binary operator interface
-        BinaryOperator<Integer> add = (a, b) -> a + b;
+//        //Binary operator interface
+//        BinaryOperator<Integer> add = (a, b) -> a + b;
+//
+//        Function<Integer, Integer> square = x -> x * x;
+//
+//        // now combining all the interfaces
+//        var res = add.andThen(square).apply(1, 2);
+//        System.out.println(res);
 
-        Function<Integer, Integer> square = x -> x * x;
+        //unary operator interface
 
-        // now combining all the interfaces
-        var res = add.andThen(square).apply(1, 2);
-        System.out.println(res);
+        UnaryOperator<Integer> square = x -> x*x;
+        UnaryOperator<Integer> increment = x -> x+1;
+
+        //Now combining this functions
+        var result = square.andThen(increment).apply(2);
+        System.out.println(result);
+
+
 
 
 
