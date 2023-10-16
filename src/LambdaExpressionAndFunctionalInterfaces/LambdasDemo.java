@@ -73,9 +73,26 @@ public class LambdasDemo {
         //compose does same thing as addThen but in reverse.
 
         //Predicate --> to test a condition
-        Predicate<String> isStrLengthGtThan5= str -> str.length() > 5;
-        var result = isStrLengthGtThan5.test("Oranges");
-        System.out.println(result);
+//        Predicate<String> isStrLengthGtThan5= str -> str.length() > 5;
+//        var result = isStrLengthGtThan5.test("Oranges");
+//        System.out.println(result);
+
+        //combining the predicates
+
+        Predicate<String> hasLeftBreaces = str -> str.startsWith("{");
+        Predicate<String> hasRightBraces = str -> str.endsWith("}");
+
+       Predicate<String> leftAndRight = hasLeftBreaces.and(hasRightBraces);
+
+
+        Predicate<String> leftOrRight = hasLeftBreaces.or(hasLeftBreaces);
+
+
+        var res=leftOrRight.test("{Key:value}");
+        var res2=leftOrRight.test("Key:value");
+
+        System.out.println(res);
+        System.out.println(res2);
 
 
 
