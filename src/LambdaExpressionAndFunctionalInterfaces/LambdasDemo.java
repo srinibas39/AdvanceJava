@@ -1,10 +1,7 @@
 package LambdaExpressionAndFunctionalInterfaces;
 
 import java.util.List;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 public class LambdasDemo {
 
@@ -79,20 +76,29 @@ public class LambdasDemo {
 
         //combining the predicates
 
-        Predicate<String> hasLeftBreaces = str -> str.startsWith("{");
-        Predicate<String> hasRightBraces = str -> str.endsWith("}");
+//        Predicate<String> hasLeftBreaces = str -> str.startsWith("{");
+//        Predicate<String> hasRightBraces = str -> str.endsWith("}");
+//
+//       Predicate<String> leftAndRight = hasLeftBreaces.and(hasRightBraces);
+//
+//
+//        Predicate<String> leftOrRight = hasLeftBreaces.or(hasLeftBreaces);
+//
+//
+//        var res=leftOrRight.test("{Key:value}");
+//        var res2=leftOrRight.test("Key:value");
+//
+//        System.out.println(res);
+//        System.out.println(res2);
 
-       Predicate<String> leftAndRight = hasLeftBreaces.and(hasRightBraces);
+        //Binary operator interface
+        BinaryOperator<Integer> add = (a, b) -> a + b;
 
+        Function<Integer, Integer> square = x -> x * x;
 
-        Predicate<String> leftOrRight = hasLeftBreaces.or(hasLeftBreaces);
-
-
-        var res=leftOrRight.test("{Key:value}");
-        var res2=leftOrRight.test("Key:value");
-
+        // now combining all the interfaces
+        var res = add.andThen(square).apply(1, 2);
         System.out.println(res);
-        System.out.println(res2);
 
 
 
