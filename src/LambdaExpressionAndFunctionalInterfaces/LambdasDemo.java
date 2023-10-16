@@ -3,6 +3,7 @@ package LambdaExpressionAndFunctionalInterfaces;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 public class LambdasDemo {
@@ -57,19 +58,24 @@ public class LambdasDemo {
         //so forst we will replace colon  with equals to
         // then we will dd braces
 
-        Function<String,String> removeColonWithEquals = str ->
-                str.replace(":","=");
-
-        Function<String, String> addBraces = str -> '{' + str + '}';
-
-        var result = removeColonWithEquals.andThen(addBraces).apply("Key:value");
-        System.out.println(result);
-        //we achieve same thing using compose
-
-        var composeResult=addBraces.compose(removeColonWithEquals).apply("Key:value");
-        System.out.println(composeResult);
+//        Function<String,String> removeColonWithEquals = str ->
+//                str.replace(":","=");
+//
+//        Function<String, String> addBraces = str -> '{' + str + '}';
+//
+//        var result = removeColonWithEquals.andThen(addBraces).apply("Key:value");
+//        System.out.println(result);
+//        //we achieve same thing using compose
+//
+//        var composeResult=addBraces.compose(removeColonWithEquals).apply("Key:value");
+//        System.out.println(composeResult);
 
         //compose does same thing as addThen but in reverse.
+
+        //Predicate --> to test a condition
+        Predicate<String> isStrLengthGtThan5= str -> str.length() > 5;
+        var result = isStrLengthGtThan5.test("Oranges");
+        System.out.println(result);
 
 
 
