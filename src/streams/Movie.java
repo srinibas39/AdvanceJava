@@ -2,6 +2,7 @@ package streams;
 
 public class Movie {
 
+
     private String title="";
     private int likes;
 
@@ -13,6 +14,11 @@ public class Movie {
     public int getLikes() {
         return likes;
     }
+
+    public String getTitle() {
+        return title;
+    }
+
 
     public void setLikes(int likes) {
         this.likes = likes;
