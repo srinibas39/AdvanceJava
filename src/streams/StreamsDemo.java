@@ -64,31 +64,51 @@ public class StreamsDemo {
 
         //map
 
-        var movies = List.of(
-                new Movie("m1",10),
-                new Movie("m2",20),
-                new Movie("m3",30),
-                new Movie("m4",40)
-        );
-
-
-        //map
-        movies
-                .stream()
-                .map(movie -> "Movie Title "+movie.getTitle())
-                .forEach(title -> System.out.println(title));
-
-        //map Int
-        movies.stream()
-                .mapToInt(movie -> movie.getLikes())
-                .map(likes -> likes*10)
-                .forEach(System.out::println);
+//        var movies = List.of(
+//                new Movie("m1",10),
+//                new Movie("m2",20),
+//                new Movie("m3",30),
+//                new Movie("m4",40)
+//        );
+//
+//
+//        //map
+//        movies
+//                .stream()
+//                .map(movie -> "Movie Title "+movie.getTitle())
+//                .forEach(title -> System.out.println(title));
+//
+//        //map Int
+//        movies.stream()
+//                .mapToInt(movie -> movie.getLikes())
+//                .map(likes -> likes*10)
+//                .forEach(System.out::println);
 
         //Flat maap
-        var stream = Stream.of(List.of(1,2,3),List.of(4,5,6),List.of(7,8,9));
-        stream
-                .flatMap(list->list.stream())
-                .forEach(el-> System.out.println(el));
+//        var stream = Stream.of(List.of(1,2,3),List.of(4,5,6),List.of(7,8,9));
+//        stream
+//                .flatMap(list->list.stream())
+//                .forEach(el-> System.out.println(el));
+
+
+        //filter
+        var movies = List.of(
+                new Movie("movie1",10),
+                new Movie("movie2",20),
+                new Movie("movie3",30),
+                new Movie("movie3",40)
+        );
+
+        Predicate<Movie> isPopularMovies = movie->movie.getLikes()>10;
+
+        movies.stream()
+                .filter(isPopularMovies)
+                .forEach(movie-> System.out.println(movie.getTitle()));
+
+
+
+
+
 
 
 
