@@ -92,18 +92,59 @@ public class StreamsDemo {
 
 
         //filter
+//        var movies = List.of(
+//                new Movie("movie1",10),
+//                new Movie("movie2",20),
+//                new Movie("movie3",30),
+//                new Movie("movie3",40)
+//        );
+//
+//        Predicate<Movie> isPopularMovies = movie->movie.getLikes()>10;
+//
+//        movies.stream()
+//                .filter(isPopularMovies)
+//                .forEach(movie-> System.out.println(movie.getTitle()));
+
+
+        //slicing methods
+
         var movies = List.of(
                 new Movie("movie1",10),
                 new Movie("movie2",20),
                 new Movie("movie3",30),
-                new Movie("movie3",40)
+                new Movie("movie4",40)
         );
 
-        Predicate<Movie> isPopularMovies = movie->movie.getLikes()>10;
+        //limit
 
         movies.stream()
-                .filter(isPopularMovies)
-                .forEach(movie-> System.out.println(movie.getTitle()));
+                .limit(2)
+                .forEach(movie -> System.out.println(movie.getTitle()));
+
+        System.out.println("-------------------------------------------------");
+
+        //skip
+        movies.stream()
+                .skip(2)
+                .forEach(movie -> System.out.println(movie.getTitle()));
+
+        //Pagination(IQ)
+        //suppose 1000
+        //1 page -> 10 movies
+        //page 3 -> 20 movies skip and 10 movies show
+        //genral formula; --> skip((page-1) * no of movies) in one page and limit(no of movies in one page)
+
+        //TakeWhilw
+        System.out.println("take while");
+        movies.stream()
+                .takeWhile(movie -> movie.getLikes()<= 20)
+                .forEach(movie -> System.out.println(movie.getTitle()));
+
+        //dropWhile
+        System.out.println("drop while");
+        movies.stream()
+                .dropWhile((movie -> movie.getLikes()<=20))
+                .forEach(movie -> System.out.println(movie.getTitle()));
 
 
 
