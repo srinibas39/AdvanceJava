@@ -3,6 +3,7 @@ package streams;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
@@ -181,13 +182,13 @@ public class StreamsDemo {
 
 
 //reducer methods
-        var movies = List.of(
-              new Movie("m1",10),
-              new Movie("m2",20),
-              new Movie("m3",30),
-              new Movie("m4",40),
-              new Movie("m5",50)
-        );
+//        var movies = List.of(
+//              new Movie("m1",10),
+//              new Movie("m2",20),
+//              new Movie("m3",30),
+//              new Movie("m4",40),
+//              new Movie("m5",50)
+//        );
 
 //        var mCount =movies.stream()
 //                .count();
@@ -218,16 +219,52 @@ public class StreamsDemo {
 //        System.out.println(findMovie);
 
         //max +. returns the max element of the stream
-        var maxElement = movies.stream()
-                .max(Comparator.comparing(Movie::getLikes));
+//        var maxElement = movies.stream()
+//                .max(Comparator.comparing(Movie::getLikes));
+//
+//        System.out.println(maxElement.get().getTitle());
+//
+//        //min => returns the minimum element of the string
+//        var minimumElement = movies.stream()
+//                .min(Comparator.comparing(Movie::getLikes)).get().getTitle();
+//
+//        System.out.println(minimumElement);
 
-        System.out.println(maxElement.get().getTitle());
+        //Reduce--> general purpose reducer
 
-        //min => returns the minimum element of the string
-        var minimumElement = movies.stream()
-                .min(Comparator.comparing(Movie::getLikes)).get().getTitle();
+        var movies = List.of(
+                new Movie("m1",10),
+                new Movie("m2",20),
+                new Movie("m3",20),
+                new Movie("m4",40)
+        );
+        //Suppose I want to get sum of all the likes
+//        Optional<Integer> likesCount=movies.stream()
+//                .map(m ->m.getLikes())
+//                .reduce((a,c)->a+c);
 
-        System.out.println(minimumElement);
+
+        //System.out.println(likesCount.get());
+        //but if reduce does not give any result then it will give error
+        //so better use orElse
+        //System.out.println(likesCount.orElse(0));
+
+        // we can also refernce it
+//        Optional<Integer> likesCount=movies.stream()
+//                .map(m ->m.getLikes())
+//                .reduce(Integer::sum);
+//
+//        System.out.println(likesCount);
+
+        //We can also give inital value , which returns integer object
+                Integer likesCount=movies.stream()
+                .map(m ->m.getLikes())
+                .reduce(0,Integer::sum);
+
+        System.out.println(likesCount);
+
+
+
 
 
 
