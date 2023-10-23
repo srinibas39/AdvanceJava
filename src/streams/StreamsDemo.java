@@ -149,18 +149,35 @@ public class StreamsDemo {
 
         //Distinct method
 
+//        var movies = List.of(
+//                new Movie("m1",10),
+//                new Movie("m2",20),
+//                new Movie("m3",30),
+//                new Movie("m4",40),
+//                new Movie("m6",20)
+//        );
+//
+//        movies.stream()
+//                .map(Movie::getLikes)
+//                .distinct()
+//                .forEach(System.out::println);
+
+        //peek methpd
+
         var movies = List.of(
                 new Movie("m1",10),
                 new Movie("m2",20),
                 new Movie("m3",30),
-                new Movie("m4",40),
-                new Movie("m6",20)
+                new Movie("m4",40)
         );
 
         movies.stream()
-                .map(Movie::getLikes)
-                .distinct()
-                .forEach(System.out::println);
+                .filter(movie -> movie.getLikes()>10)
+                .peek(movie -> System.out.println("filtered "+movie.getTitle()))
+                .map(movie -> movie.getTitle())
+                .peek(t -> System.out.println("mapped "+t))
+                .forEach(t -> System.out.println(t));
+
 
 
 
