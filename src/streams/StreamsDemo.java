@@ -4,7 +4,9 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamsDemo {
@@ -232,12 +234,12 @@ public class StreamsDemo {
 
         //Reduce--> general purpose reducer
 
-        var movies = List.of(
-                new Movie("m1",10),
-                new Movie("m2",20),
-                new Movie("m3",20),
-                new Movie("m4",40)
-        );
+//        var movies = List.of(
+//                new Movie("m1",10),
+//                new Movie("m2",20),
+//                new Movie("m3",20),
+//                new Movie("m4",40)
+//        );
         //Suppose I want to get sum of all the likes
 //        Optional<Integer> likesCount=movies.stream()
 //                .map(m ->m.getLikes())
@@ -257,11 +259,74 @@ public class StreamsDemo {
 //        System.out.println(likesCount);
 
         //We can also give inital value , which returns integer object
-                Integer likesCount=movies.stream()
-                .map(m ->m.getLikes())
-                .reduce(0,Integer::sum);
+//                Integer likesCount=movies.stream()
+//                .map(m ->m.getLikes())
+//                .reduce(0,Integer::sum);
+//
+//        System.out.println(likesCount);
 
-        System.out.println(likesCount);
+//     Collectors
+
+var movies = List.of(
+        new Movie("m1",10),
+        new Movie("m2",20),
+        new Movie("m3",30),
+        new Movie("m4",40)
+);
+
+//collectors.toList()
+
+//var result = movies.stream()
+//        .filter(m -> m.getLikes()>10)
+//        .map(m -> m.getTitle())
+//        .collect(Collectors.toList());
+
+
+//collectors.toSet()
+
+//        var result = movies.stream()
+//                .filter(m -> m.getLikes()>10)
+//                .map(m -> m.getTitle())
+//                .collect(Collectors.toSet());
+
+//collectors.toMap
+        var result = movies.stream()
+                .filter(m -> m.getLikes()>10)
+//                .collect(Collectors.toMap(m->m.getTitle(),m->m.getLikes()));
+//                .collect(Collectors.toMap(m->m.getTitle(),m->m));
+        .collect(Collectors.toMap(m->m.getTitle(), Function.identity()));
+
+
+        System.out.println(result);
+
+
+        //summinh -> int , long , double
+
+        var result2 = movies.stream()
+                .filter(m -> m.getLikes()>10)
+                .collect(Collectors.summingInt(m ->m.getLikes())); // you can always use reference
+
+        System.out.println(result2);
+
+        //summmarzing
+        var result3 = movies.stream()
+                .filter(m ->m.getLikes()>10)
+                .collect(Collectors.summarizingInt(Movie::getLikes));
+
+        System.out.println(result3);
+
+        //joining
+
+        var joinedString = movies.stream()
+                .filter(m->m.getLikes()>10)
+                .map(m->m.getTitle())
+                .collect(Collectors.joining("/"));
+
+        System.out.println(joinedString);
+
+
+
+
 
 
 
