@@ -347,21 +347,23 @@ public class StreamsDemo {
 
         //partition By
 
-        var movies = List.of(
-                new Movie("m1",10,Genre.COMEDY),
-                new Movie("m2",20,Genre.ACTION),
-                new Movie("m3",30,Genre.THRILLER),
-                new Movie("M4",40,Genre.COMEDY),
-                new Movie("m5",60,Genre.ADVENTURE)
-        );
-
-        var streams = movies.stream()
-                .collect(Collectors.partitioningBy(m -> m.getLikes()>10,
-                        Collectors.mapping(Movie::getTitle,Collectors.joining("/"))));
-
-        System.out.println(streams);
+//        var movies = List.of(
+//                new Movie("m1",10,Genre.COMEDY),
+//                new Movie("m2",20,Genre.ACTION),
+//                new Movie("m3",30,Genre.THRILLER),
+//                new Movie("M4",40,Genre.COMEDY),
+//                new Movie("m5",60,Genre.ADVENTURE)
+//        );
+//
+//        var streams = movies.stream()
+//                .collect(Collectors.partitioningBy(m -> m.getLikes()>10,
+//                        Collectors.mapping(Movie::getTitle,Collectors.joining("/"))));
+//
+//        System.out.println(streams);
 
 //        {false=m1, true=m2/m3/M4/m5}
+
+
 
 
 
