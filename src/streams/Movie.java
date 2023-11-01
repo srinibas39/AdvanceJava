@@ -1,14 +1,15 @@
 package streams;
 
 public class Movie {
-
-
-    private String title="";
+    private String title = "";
     private int likes;
+    private Genre genre;
 
-    public Movie(String title, int likes) {
+
+    public Movie(String title, int likes, Genre genre) {
         this.title = title;
         this.likes = likes;
+        this.genre = genre;
     }
 
     public int getLikes() {
@@ -19,14 +20,12 @@ public class Movie {
         return title;
     }
 
+    public Genre getGenre() {
+        return genre;
+    }
+
 
     public void setLikes(int likes) {
         this.likes = likes;
     }
-
-
-
-
-
-
 }

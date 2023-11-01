@@ -267,12 +267,12 @@ public class StreamsDemo {
 
 //     Collectors
 
-var movies = List.of(
-        new Movie("m1",10),
-        new Movie("m2",20),
-        new Movie("m3",30),
-        new Movie("m4",40)
-);
+//var movies = List.of(
+//        new Movie("m1",10),
+//        new Movie("m2",20),
+//        new Movie("m3",30),
+//        new Movie("m4",40)
+//);
 
 //collectors.toList()
 
@@ -290,39 +290,60 @@ var movies = List.of(
 //                .collect(Collectors.toSet());
 
 //collectors.toMap
-        var result = movies.stream()
-                .filter(m -> m.getLikes()>10)
-//                .collect(Collectors.toMap(m->m.getTitle(),m->m.getLikes()));
-//                .collect(Collectors.toMap(m->m.getTitle(),m->m));
-        .collect(Collectors.toMap(m->m.getTitle(), Function.identity()));
+//        var result = movies.stream()
+//                .filter(m -> m.getLikes()>10)
+////                .collect(Collectors.toMap(m->m.getTitle(),m->m.getLikes()));
+////                .collect(Collectors.toMap(m->m.getTitle(),m->m));
+//        .collect(Collectors.toMap(m->m.getTitle(), Function.identity()));
+//
+//
+//        System.out.println(result);
+//
+//
+//        //summinh -> int , long , double
+//
+//        var result2 = movies.stream()
+//                .filter(m -> m.getLikes()>10)
+//                .collect(Collectors.summingInt(m ->m.getLikes())); // you can always use reference
+//
+//        System.out.println(result2);
+//
+//        //summmarzing
+//        var result3 = movies.stream()
+//                .filter(m ->m.getLikes()>10)
+//                .collect(Collectors.summarizingInt(Movie::getLikes));
+//
+//        System.out.println(result3);
+//
+//        //joining
+//
+//        var joinedString = movies.stream()
+//                .filter(m->m.getLikes()>10)
+//                .map(m->m.getTitle())
+//                .collect(Collectors.joining("/"));
+//
+//        System.out.println(joinedString);
 
+        //Group By
+
+        var movies = List.of(
+                new Movie("m1",10,Genre.ACTION),
+                new Movie("m2",20,Genre.ADVENTURE),
+                new Movie("m3",30,Genre.COMEDY),
+                new Movie("m4",40,Genre.THRILLER),
+                new Movie("m6",40,Genre.COMEDY)
+        );
+
+        var result = movies.stream()
+//                .collect(Collectors.groupingBy(Movie::getGenre , Collectors.toList()));
+//                .collect(Collectors.groupingBy(Movie::getGenre , Collectors.counting()));
+        .collect(Collectors.groupingBy(Movie::getGenre,Collectors.mapping(
+               Movie::getTitle,Collectors.joining("/")
+        )));
+
+//        o/p =>{ADVENTURE=m2, THRILLER=m4, ACTION=m1, COMEDY=m3/m6}
 
         System.out.println(result);
-
-
-        //summinh -> int , long , double
-
-        var result2 = movies.stream()
-                .filter(m -> m.getLikes()>10)
-                .collect(Collectors.summingInt(m ->m.getLikes())); // you can always use reference
-
-        System.out.println(result2);
-
-        //summmarzing
-        var result3 = movies.stream()
-                .filter(m ->m.getLikes()>10)
-                .collect(Collectors.summarizingInt(Movie::getLikes));
-
-        System.out.println(result3);
-
-        //joining
-
-        var joinedString = movies.stream()
-                .filter(m->m.getLikes()>10)
-                .map(m->m.getTitle())
-                .collect(Collectors.joining("/"));
-
-        System.out.println(joinedString);
 
 
 
