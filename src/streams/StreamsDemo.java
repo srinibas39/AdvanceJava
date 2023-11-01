@@ -326,24 +326,43 @@ public class StreamsDemo {
 
         //Group By
 
+//        var movies = List.of(
+//                new Movie("m1",10,Genre.ACTION),
+//                new Movie("m2",20,Genre.ADVENTURE),
+//                new Movie("m3",30,Genre.COMEDY),
+//                new Movie("m4",40,Genre.THRILLER),
+//                new Movie("m6",40,Genre.COMEDY)
+//        );
+//
+//        var result = movies.stream()
+////                .collect(Collectors.groupingBy(Movie::getGenre , Collectors.toList()));
+////                .collect(Collectors.groupingBy(Movie::getGenre , Collectors.counting()));
+//        .collect(Collectors.groupingBy(Movie::getGenre,Collectors.mapping(
+//               Movie::getTitle,Collectors.joining("/")
+//        )));
+//
+////        o/p =>{ADVENTURE=m2, THRILLER=m4, ACTION=m1, COMEDY=m3/m6}
+//
+//        System.out.println(result);
+
+        //partition By
+
         var movies = List.of(
-                new Movie("m1",10,Genre.ACTION),
-                new Movie("m2",20,Genre.ADVENTURE),
-                new Movie("m3",30,Genre.COMEDY),
-                new Movie("m4",40,Genre.THRILLER),
-                new Movie("m6",40,Genre.COMEDY)
+                new Movie("m1",10,Genre.COMEDY),
+                new Movie("m2",20,Genre.ACTION),
+                new Movie("m3",30,Genre.THRILLER),
+                new Movie("M4",40,Genre.COMEDY),
+                new Movie("m5",60,Genre.ADVENTURE)
         );
 
-        var result = movies.stream()
-//                .collect(Collectors.groupingBy(Movie::getGenre , Collectors.toList()));
-//                .collect(Collectors.groupingBy(Movie::getGenre , Collectors.counting()));
-        .collect(Collectors.groupingBy(Movie::getGenre,Collectors.mapping(
-               Movie::getTitle,Collectors.joining("/")
-        )));
+        var streams = movies.stream()
+                .collect(Collectors.partitioningBy(m -> m.getLikes()>10,
+                        Collectors.mapping(Movie::getTitle,Collectors.joining("/"))));
 
-//        o/p =>{ADVENTURE=m2, THRILLER=m4, ACTION=m1, COMEDY=m3/m6}
+        System.out.println(streams);
 
-        System.out.println(result);
+//        {false=m1, true=m2/m3/M4/m5}
+
 
 
 
