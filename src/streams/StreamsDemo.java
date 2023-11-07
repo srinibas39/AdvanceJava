@@ -1,5 +1,6 @@
 package streams;
 
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.Optional;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class StreamsDemo {
@@ -364,6 +366,18 @@ public class StreamsDemo {
 //        {false=m1, true=m2/m3/M4/m5}
 
 
+        //primitive type stream
+
+       var r1=  IntStream.of(1,2,3);
+
+        IntStream.range(1,5)
+               .forEach(System.out::println);
+        //5 is not included
+
+
+        IntStream.rangeClosed(1,5)
+                .forEach(System.out::println);
+        //5 is included
 
 
 
