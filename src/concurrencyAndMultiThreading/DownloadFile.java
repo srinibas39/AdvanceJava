@@ -1,18 +1,23 @@
 package concurrencyAndMultiThreading;
 
-public class DownloadFile implements Runnable{
-    @Override
-    public void run() {
-        System.out.println("Downloading File "+Thread.currentThread().getName());
+public class DownloadFile implements Runnable {
 
+    private final DownloadStatus status;
 
-        for(var i=0;i<Integer.MAX_VALUE;i++){
-            if(Thread.currentThread().isInterrupted()) return;
-            System.out.println("Downloading byte "+i);
-        }
-
-        System.out.println("Download Complete"+ Thread.currentThread().getName());
+    public DownloadFile(DownloadStatus status) {
+        this.status = status;
     }
 
+    @Override
+    public void run() {
+        System.out.println("Downloading File " + Thread.currentThread().getName());
 
+        for (int i = 0; i < 10_000; i++) {
+            if (Thread.currentThread().isInterrupted()) return;
+            status.incrementCount();
+
+        }
+
+        System.out.println("Download Complete" + Thread.currentThread().getName());
+    }
 }

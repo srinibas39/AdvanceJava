@@ -1,23 +1,28 @@
 package concurrencyAndMultiThreading;
 
+import java.util.ArrayList;
+
 public class ThreadsDemo {
 
-    public static void show(){
+    public static void show() {
 
-        Thread thread = new Thread(new DownloadFile());
-        //starting the dowbloading thread
-        thread.start();
+        DownloadStatus status = new DownloadStatus();
+        ArrayList<Thread> allThreads = new ArrayList<>();
 
-        //Now after 1 sec . I want to interrupt the thread
-
-        try {
-            thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+        for (int i = 0; i < 10; i++) {
+            Thread thread = new Thread(new DownloadFile(status));
+            thread.start();
+            allThreads.add(thread);
         }
 
-        thread.interrupt();
+        for (var thread : allThreads) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
+        System.out.println(status.getCount());
     }
-
 }
