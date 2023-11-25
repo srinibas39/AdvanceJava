@@ -1,5 +1,6 @@
 import LambdaExpressionAndFunctionalInterfaces.LambdasDemo;
 import collections.*;
+import concurrencyAndMultiThreading.ThreadsDemo;
 import exceptions.CustomInsufficientBalanceException;
 import exceptions.ExceptionDemo;
 import generics.*;
@@ -194,10 +195,13 @@ public class Main {
 
 //        Functional interfaces
 
-        LambdasDemo.show();
+//        LambdasDemo.show();
 
 //        var demo = new LambdasDemo();
 //        demo.show();
+
+
+        ThreadsDemo.show();
 
 
 
