@@ -2,8 +2,8 @@ package concurrencyAndMultiThreading;
 
 public class DownloadFile implements Runnable{
     private DownloadStatus status;
-    public DownloadFile() {
-        this.status = new DownloadStatus();
+    public DownloadFile(DownloadStatus status) {
+        this.status = status;
     }
 
     @Override
@@ -18,8 +18,6 @@ public class DownloadFile implements Runnable{
         System.out.println("Download Complete"+ Thread.currentThread().getName());
     }
 
-    public DownloadStatus getStatus() {
-        return this.status;
-    }
+
 
 }
