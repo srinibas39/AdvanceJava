@@ -6,11 +6,14 @@ public class ThreadsDemo {
 
     public static void show() {
 
-        DownloadStatus status = new DownloadStatus();
+
         ArrayList<Thread> allThreads = new ArrayList<>();
+        ArrayList<DownloadFile> tasks = new ArrayList<>();
 
         for (int i = 0; i < 10; i++) {
-            Thread thread = new Thread(new DownloadFile(status));
+            var task = new DownloadFile();
+            tasks.add(task);
+            Thread thread = new Thread(task);
             thread.start();
             allThreads.add(thread);
         }
@@ -23,6 +26,10 @@ public class ThreadsDemo {
             }
         }
 
-        System.out.println(status.getCount());
+        var taskCount=tasks.stream().
+                map(t->t.getStatus().getCount())
+                .reduce(0,(a,b)->a+b);
+
+       System.out.println(taskCount);
     }
 }

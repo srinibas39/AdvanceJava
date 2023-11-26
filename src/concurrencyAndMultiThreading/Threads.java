@@ -28,6 +28,5 @@ public class Threads {
 //        }
 //
 //        System.out.println("File is ready to be scanned");
-
     }
 }
